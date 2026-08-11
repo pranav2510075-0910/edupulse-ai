@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EduPulse AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= Animated Background ================= -->
+
+<div class="background">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+<!-- ================= Main Container ================= -->
+
+<div class="container">
+
+    <!-- ================= Sidebar ================= -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <h2>EduPulse AI</h2>
+
+        </div>
+
+        <div class="status">
+
+            <div class="dot"></div>
+
+            AI Assistant Online
+
+        </div>
+
+        <div class="welcome-card">
+
+            <h3>Welcome 👋</h3>
+
+            <p>
+
+                EduPulse AI is an intelligent student feedback assistant.
+
+                Instead of filling out a boring form,
+
+                let's have a quick conversation.
+
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <span>AI Powered Conversation</span>
+
+        </div>
+
+        <div class="feature">
+
+            <i class="fa-solid fa-chart-column"></i>
+
+            <span>Smart Feedback Analytics</span>
+
+        </div>
+
+        <div class="feature">
+
+            <i class="fa-solid fa-file-excel"></i>
+
+            <span>Automatic Excel Storage</span>
+
+        </div>
+
+        <div class="feature">
+
+            <i class="fa-solid fa-shield-heart"></i>
+
+            <span>Anonymous & Secure</span>
+
+        </div>
+
+    </div>
+
+    <!-- ================= Chat Area ================= -->
+
+    <div class="chat-container">
+
+        <!-- Header -->
+
+        <div class="chat-header">
+
+            <div class="avatar">
+
+                🤖
+
+            </div>
+
+            <div>
+
+                <h2>EduPulse AI</h2>
+
+                <small>Always ready to listen</small>
+
+            </div>
+
+            <div class="header-right">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Active
+
+            </div>
+
+        </div>
+
+        <!-- Progress -->
+
+        <div class="progress-wrapper">
+
+            <div class="progress-bar">
+
+                <div id="progressFill"></div>
+
+            </div>
+
+            <span id="progressValue">0%</span>
+
+        </div>
+
+        <!-- Chat -->
+
+        <div id="chatBox" class="chat-box"></div> 
+                <!-- ================= Quick Reply Buttons ================= -->
+
+        <div id="quickReplies" class="quick-replies">
+
+        </div>
+
+        <!-- ================= Typing Indicator ================= -->
+
+        <div id="typingArea" class="typing-area" style="display:none;">
+
+            <div class="typing-bubble">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            <small>EduPulse AI is typing...</small>
+
+        </div>
+
+        <!-- ================= Input Section ================= -->
+
+        <div class="input-container">
+
+            <!-- Text Input -->
+
+            <input
+                type="text"
+                id="userInput"
+                placeholder="Type your answer..."
+                autocomplete="off"
+            >
+
+            <!-- Dropdown -->
+
+            <select
+                id="dropdownInput"
+                style="display:none;"
+            >
+
+            </select>
+
+            <!-- Send Button -->
+
+            <button
+                id="sendBtn"
+                onclick="sendMessage()"
+            >
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ================= Footer ================= -->
+
+<footer>
+
+    <p>
+
+        Built with ❤️ using Flask, JavaScript and AI
+
+    </p>
+
+</footer>
+
+<!-- ================= JS ================= -->
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html> 

@@ -1,0 +1,848 @@
+/* ===========================================
+   EduPulse AI
+=========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#312e81);
+
+    background-size:400% 400%;
+
+    animation:bgMove 15s ease infinite;
+
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+@keyframes bgMove{
+
+0%{background-position:0% 50%;}
+
+50%{background-position:100% 50%;}
+
+100%{background-position:0% 50%;}
+
+}
+
+/* Floating circles */
+
+.background{
+
+position:fixed;
+
+width:100%;
+
+height:100%;
+
+overflow:hidden;
+
+z-index:-1;
+
+}
+
+.background span{
+
+position:absolute;
+
+display:block;
+
+width:200px;
+
+height:200px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.05);
+
+animation:float 20s linear infinite;
+
+bottom:-200px;
+
+}
+
+.background span:nth-child(1){
+
+left:10%;
+
+animation-duration:18s;
+
+}
+
+.background span:nth-child(2){
+
+left:35%;
+
+animation-duration:25s;
+
+width:260px;
+
+height:260px;
+
+}
+
+.background span:nth-child(3){
+
+left:70%;
+
+animation-duration:20s;
+
+}
+
+.background span:nth-child(4){
+
+left:90%;
+
+animation-duration:30s;
+
+width:150px;
+
+height:150px;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0) rotate(0deg);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:.4;
+
+}
+
+100%{
+
+transform:translateY(-1200px) rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+/* Container */
+
+.container{
+
+width:95%;
+
+height:94vh;
+
+margin:20px auto;
+
+display:flex;
+
+gap:20px;
+
+}
+
+/* Sidebar */
+
+.sidebar{
+
+width:300px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border-radius:25px;
+
+padding:30px;
+
+color:white;
+
+box-shadow:0 8px 30px rgba(0,0,0,.3);
+
+}
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+font-size:22px;
+
+margin-bottom:25px;
+
+}
+
+.logo i{
+
+font-size:34px;
+
+color:#38bdf8;
+
+}
+
+.status{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+margin-bottom:30px;
+
+font-size:14px;
+
+}
+
+.dot{
+
+width:10px;
+
+height:10px;
+
+background:#22c55e;
+
+border-radius:50%;
+
+animation:pulse 1.2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{transform:scale(1);}
+
+50%{transform:scale(1.5);}
+
+100%{transform:scale(1);}
+
+}
+
+.welcome-card{
+
+background:rgba(255,255,255,.08);
+
+padding:20px;
+
+border-radius:18px;
+
+line-height:1.8;
+
+margin-bottom:25px;
+
+}
+
+.feature{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+padding:15px;
+
+margin-top:15px;
+
+background:rgba(255,255,255,.05);
+
+border-radius:14px;
+
+transition:.3s;
+
+cursor:pointer;
+
+}
+
+.feature:hover{
+
+background:rgba(255,255,255,.12);
+
+transform:translateX(8px);
+
+} 
+/* ===========================================
+   CHAT CONTAINER
+=========================================== */
+
+.chat-container{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.3);
+
+}
+
+/* ===========================================
+   CHAT HEADER
+=========================================== */
+
+.chat-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 30px;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+}
+
+.chat-header h2{
+
+    font-size:22px;
+
+}
+
+.chat-header small{
+
+    color:#dbeafe;
+
+}
+
+.avatar{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:30px;
+
+    margin-right:15px;
+
+    animation:robotFloat 3s ease-in-out infinite;
+
+}
+
+@keyframes robotFloat{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-6px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+.header-right{
+
+    background:#22c55e;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+}
+
+/* ===========================================
+   PROGRESS BAR
+=========================================== */
+
+.progress-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px 25px;
+
+    color:white;
+
+}
+
+.progress-bar{
+
+    flex:1;
+
+    height:12px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.15);
+
+    overflow:hidden;
+
+}
+
+#progressFill{
+
+    width:0;
+
+    height:100%;
+
+    background:linear-gradient(90deg,#38bdf8,#06b6d4);
+
+    transition:0.5s;
+
+}
+
+/* ===========================================
+   CHAT BOX
+=========================================== */
+
+.chat-box{
+
+    flex:1;
+
+    padding:25px;
+
+    overflow-y:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    scroll-behavior:smooth;
+
+}
+
+.chat-box::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.chat-box::-webkit-scrollbar-thumb{
+
+    background:#38bdf8;
+
+    border-radius:20px;
+
+}
+
+/* ===========================================
+   BOT MESSAGE
+=========================================== */
+
+.bot{
+
+    max-width:75%;
+
+    background:white;
+
+    color:#1e293b;
+
+    padding:16px 20px;
+
+    border-radius:22px;
+
+    border-top-left-radius:6px;
+
+    animation:slideLeft .4s;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.12);
+
+    line-height:1.7;
+
+}
+
+@keyframes slideLeft{
+
+from{
+
+opacity:0;
+
+transform:translateX(-30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+}
+
+/* ===========================================
+   USER MESSAGE
+=========================================== */
+
+.user{
+
+    align-self:flex-end;
+
+    max-width:75%;
+
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+
+    color:white;
+
+    padding:16px 20px;
+
+    border-radius:22px;
+
+    border-top-right-radius:6px;
+
+    animation:slideRight .4s;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.2);
+
+    line-height:1.7;
+
+}
+
+@keyframes slideRight{
+
+from{
+
+opacity:0;
+
+transform:translateX(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+} 
+/* ===========================================
+   QUICK REPLY CHIPS
+=========================================== */
+
+.quick-replies{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    padding:15px 25px;
+
+}
+
+.quick-btn{
+
+    background:white;
+
+    color:#2563eb;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.quick-btn:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================================
+   TYPING ANIMATION
+=========================================== */
+
+.typing-area{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:10px 25px;
+
+    color:white;
+
+}
+
+.typing-bubble{
+
+    display:flex;
+
+    gap:6px;
+
+}
+
+.typing-bubble span{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:white;
+
+    animation:bounce 1.2s infinite;
+
+}
+
+.typing-bubble span:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+.typing-bubble span:nth-child(3){
+
+    animation-delay:.4s;
+
+}
+
+@keyframes bounce{
+
+0%{
+
+transform:translateY(0);
+
+opacity:.4;
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(0);
+
+opacity:.4;
+
+}
+
+}
+
+/* ===========================================
+   INPUT AREA
+=========================================== */
+
+.input-container{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:20px;
+
+    background:rgba(255,255,255,.08);
+
+}
+
+#userInput{
+
+    flex:1;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+#dropdownInput{
+
+    flex:1;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+#sendBtn{
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#sendBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+/* ===========================================
+   FOOTER
+=========================================== */
+
+footer{
+
+    text-align:center;
+
+    color:white;
+
+    padding:12px;
+
+    font-size:14px;
+
+}
+
+/* ===========================================
+   MOBILE RESPONSIVE
+=========================================== */
+
+@media(max-width:900px){
+
+.container{
+
+    flex-direction:column;
+
+    height:auto;
+
+}
+
+.sidebar{
+
+    width:100%;
+
+}
+
+.chat-container{
+
+    height:80vh;
+
+}
+
+.bot,.user{
+
+    max-width:90%;
+
+}
+
+.quick-replies{
+
+    justify-content:center;
+
+}
+
+.input-container{
+
+    flex-direction:column;
+
+}
+
+#userInput,#dropdownInput{
+
+    width:100%;
+
+}
+
+#sendBtn{
+
+    width:100%;
+
+    border-radius:14px;
+
+}
+
+} 
